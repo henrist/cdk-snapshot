@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "lib": ["es2019"],
+    "module": "commonjs",
+    "outDir": "./lib",
+    "strict": true,
+    "target": "ES2018"
+  }
+}

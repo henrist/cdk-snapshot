@@ -1,0 +1,6 @@
+.vscode/
+node_modules/
+/lib/
+/*.tgz
+/cdk.out/
+/cdk.out.test/
