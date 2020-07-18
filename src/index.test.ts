@@ -10,7 +10,7 @@ async function rm(path: string): Promise<void> {
 beforeAll(async () => {
   await rm("cdk.out")
   await execa("npm", ["run", "cdk", "--", "synth"])
-})
+}, 30000)
 
 test("Snapshots should be creatable from CLI", async () => {
   await rm("cdk.out.test")
@@ -23,7 +23,7 @@ test("Snapshots should be creatable from CLI", async () => {
         "stack-1.template.json",
       ]
     `)
-})
+}, 30000)
 
 describe("For a given snapshot", () => {
   beforeAll(async () => {
