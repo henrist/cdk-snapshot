@@ -33,6 +33,18 @@ exports[`For a given snapshot Manifest file It should match previous snapshot 1`
             \\"type\\": \\"aws:cdk:logicalId\\",
             \\"data\\": \\"MyFunction3BAA72D1\\"
           }
+        ],
+        \\"/stack-1/MyFunction/CurrentVersion/Resource\\": [
+          {
+            \\"type\\": \\"aws:cdk:logicalId\\",
+            \\"data\\": \\"MyFunctionCurrentVersion197490AFxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\"
+          }
+        ],
+        \\"/stack-1/MyFunctionVersionOutput\\": [
+          {
+            \\"type\\": \\"aws:cdk:logicalId\\",
+            \\"data\\": \\"MyFunctionVersionOutput\\"
+          }
         ]
       }
     }
@@ -136,8 +148,29 @@ exports[`For a given snapshot Template file It should match previous snapshot 1`
         \\"aws:asset:path\\": \\"asset.snapshot-value\\",
         \\"aws:asset:property\\": \\"Code\\"
       }
+    },
+    \\"MyFunctionCurrentVersion197490AFxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\": {
+      \\"Type\\": \\"AWS::Lambda::Version\\",
+      \\"Properties\\": {
+        \\"FunctionName\\": {
+          \\"Ref\\": \\"MyFunction3BAA72D1\\"
+        }
+      },
+      \\"Metadata\\": {
+        \\"aws:cdk:path\\": \\"stack-1/MyFunction/CurrentVersion/Resource\\"
+      }
     }
   },
-  \\"Parameters\\": {}
+  \\"Parameters\\": {},
+  \\"Outputs\\": {
+    \\"MyFunctionVersionOutput\\": {
+      \\"Value\\": {
+        \\"Fn::GetAtt\\": [
+          \\"MyFunctionCurrentVersion197490AFxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\",
+          \\"Version\\"
+        ]
+      }
+    }
+  }
 }"
 `;

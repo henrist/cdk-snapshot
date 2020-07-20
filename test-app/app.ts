@@ -10,8 +10,12 @@ const stack1 = new cdk.Stack(app, "stack-1", {
   },
 })
 
-new lambda.Function(stack1, "MyFunction", {
+const fn = new lambda.Function(stack1, "MyFunction", {
   code: lambda.Code.fromAsset("test-app/example-asset"),
   handler: "index.handler",
   runtime: lambda.Runtime.NODEJS_12_X,
+})
+
+new cdk.CfnOutput(stack1, "MyFunctionVersionOutput", {
+  value: fn.currentVersion.version,
 })
