@@ -33,10 +33,10 @@
     "access": "public"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "1.56.0",
-    "@aws-cdk/aws-lambda": "1.56.0",
-    "@aws-cdk/core": "1.56.0",
-    "@aws-cdk/custom-resources": "1.56.0",
+    "@aws-cdk/assert": "1.57.0",
+    "@aws-cdk/aws-lambda": "1.57.0",
+    "@aws-cdk/core": "1.57.0",
+    "@aws-cdk/custom-resources": "1.57.0",
     "@commitlint/cli": "9.1.1",
     "@commitlint/config-conventional": "9.1.1",
     "@types/jest": "26.0.9",
@@ -44,7 +44,7 @@
     "@types/rimraf": "3.0.0",
     "@typescript-eslint/eslint-plugin": "3.8.0",
     "@typescript-eslint/parser": "3.8.0",
-    "aws-cdk": "1.56.0",
+    "aws-cdk": "1.57.0",
     "aws-sdk": "2.715.0",
     "eslint": "7.6.0",
     "eslint-config-prettier": "6.11.0",
