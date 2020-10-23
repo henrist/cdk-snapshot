@@ -39,7 +39,7 @@
     "@aws-cdk/custom-resources": "1.64.1",
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-conventional": "11.0.0",
-    "@types/jest": "26.0.14",
+    "@types/jest": "26.0.15",
     "@types/node": "14.11.10",
     "@types/rimraf": "3.0.0",
     "@typescript-eslint/eslint-plugin": "4.5.0",
