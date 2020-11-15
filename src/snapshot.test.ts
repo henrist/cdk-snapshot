@@ -1,5 +1,6 @@
 import * as execa from "execa"
 import * as fs from "fs"
+import * as glob from "glob"
 import * as rimraf from "rimraf"
 import { createCloudAssemblySnapshot } from "./index"
 import {
@@ -25,11 +26,16 @@ describe("A current application", () => {
       "cdk.out.test",
     ])
 
-    const files = fs.readdirSync("cdk.out.test", "utf-8").sort()
+    const files = glob.sync("cdk.out.test/**").sort()
+
     expect(files).toMatchInlineSnapshot(`
       Array [
-        "manifest.json",
-        "stack-1.template.json",
+        "cdk.out.test",
+        "cdk.out.test/assembly-my-stage",
+        "cdk.out.test/assembly-my-stage/manifest.json",
+        "cdk.out.test/assembly-my-stage/my-stage-stack-2.template.json",
+        "cdk.out.test/manifest.json",
+        "cdk.out.test/stack-1.template.json",
       ]
     `)
   }, 30000)
@@ -73,16 +79,20 @@ describe("A current application", () => {
     })
 
     test("Output directory should have expected files", () => {
-      const files = fs.readdirSync("cdk.out.test", "utf-8").sort()
+      const files = glob.sync("cdk.out.test/**").sort()
       expect(files).toMatchInlineSnapshot(`
-      Array [
-        "manifest.json",
-        "stack-1.template.json",
-      ]
-    `)
+        Array [
+          "cdk.out.test",
+          "cdk.out.test/assembly-my-stage",
+          "cdk.out.test/assembly-my-stage/manifest.json",
+          "cdk.out.test/assembly-my-stage/my-stage-stack-2.template.json",
+          "cdk.out.test/manifest.json",
+          "cdk.out.test/stack-1.template.json",
+        ]
+      `)
     })
 
-    describe("Manifest file", () => {
+    describe("Manifest file in top-level", () => {
       let before: string
       let after: string
 
@@ -120,13 +130,82 @@ describe("A current application", () => {
       })
     })
 
-    describe("Template file", () => {
+    describe("Manifest file in stage", () => {
+      let before: string
+      let after: string
+
+      beforeAll(() => {
+        before = fs.readFileSync(
+          "cdk.out/assembly-my-stage/manifest.json",
+          "utf-8",
+        )
+        after = fs.readFileSync(
+          "cdk.out.test/assembly-my-stage/manifest.json",
+          "utf-8",
+        )
+      })
+
+      test("Version should be removed", () => {
+        expect(before).toContain('"version"')
+        expect(after).not.toContain('"version"')
+      })
+
+      test("No runtime information", () => {
+        expect(before).not.toContain('"runtime":')
+        expect(after).not.toContain('"runtime":')
+      })
+
+      test("Trace should be removed", () => {
+        expect(before).toContain('"trace"')
+        expect(after).not.toContain('"trace"')
+      })
+
+      test("Asset hashes should be removed", () => {
+        expect(before).toContain("AssetParameters")
+        expect(after).not.toContain("AssetParameters")
+      })
+
+      test("It should still contain resource information", () => {
+        expect(after).toContain('"MyFunctionServiceRole3C357FF2"')
+      })
+
+      test("It should match previous snapshot", () => {
+        expect(after).toMatchSnapshot()
+      })
+    })
+
+    describe("Template file in top-level", () => {
       let before: string
       let after: string
 
       beforeAll(() => {
         before = fs.readFileSync("cdk.out/stack-1.template.json", "utf-8")
         after = fs.readFileSync("cdk.out.test/stack-1.template.json", "utf-8")
+      })
+
+      test("Asset hashes should be removed", () => {
+        expect(before).toContain("AssetParameters")
+        expect(after).not.toContain("AssetParameters")
+      })
+
+      test("It should match previous snapshot", () => {
+        expect(after).toMatchSnapshot()
+      })
+    })
+
+    describe("Template file in stage", () => {
+      let before: string
+      let after: string
+
+      beforeAll(() => {
+        before = fs.readFileSync(
+          "cdk.out/assembly-my-stage/my-stage-stack-2.template.json",
+          "utf-8",
+        )
+        after = fs.readFileSync(
+          "cdk.out.test/assembly-my-stage/my-stage-stack-2.template.json",
+          "utf-8",
+        )
       })
 
       test("Asset hashes should be removed", () => {
