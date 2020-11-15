@@ -96,9 +96,9 @@ describe("A current application", () => {
         expect(after).not.toContain('"version"')
       })
 
-      test("Runtime information should be removed", () => {
-        expect(before).toContain('"runtime": {\n')
-        expect(after).toContain('"runtime": {}')
+      test("No runtime information", () => {
+        expect(before).not.toContain('"runtime":')
+        expect(after).not.toContain('"runtime":')
       })
 
       test("Trace should be removed", () => {
@@ -190,6 +190,71 @@ describe("Files from a v5 Cloud Assembly", () => {
     beforeAll(() => {
       before = fs.readFileSync(
         "src/__test_assets__/cloud-assembly-v5/stack-1.template.json",
+        "utf-8",
+      )
+      after = prepareTemplateForSnapshot(before)
+    })
+
+    test("Asset hashes should be removed", () => {
+      expect(before).toContain("AssetParameters")
+      expect(after).not.toContain("AssetParameters")
+    })
+
+    test("It should match previous snapshot", () => {
+      expect(after).toMatchSnapshot()
+    })
+  })
+})
+
+describe("Files from a v7 Cloud Assembly", () => {
+  describe("Manifest file", () => {
+    let before: string
+    let after: string
+
+    beforeAll(() => {
+      before = fs.readFileSync(
+        "src/__test_assets__/cloud-assembly-v7/manifest.json",
+        "utf-8",
+      )
+      after = prepareManifestForSnapshot(before)
+    })
+
+    test("Version should be removed", () => {
+      expect(before).toContain('"version"')
+      expect(after).not.toContain('"version"')
+    })
+
+    test("No runtime information", () => {
+      expect(before).not.toContain('"runtime":')
+      expect(after).not.toContain('"runtime":')
+    })
+
+    test("Trace should be removed", () => {
+      expect(before).toContain('"trace"')
+      expect(after).not.toContain('"trace"')
+    })
+
+    test("Asset hashes should be removed", () => {
+      expect(before).toContain("AssetParameters")
+      expect(after).not.toContain("AssetParameters")
+    })
+
+    test("It should still contain resource information", () => {
+      expect(after).toContain('"MyFunctionServiceRole3C357FF2"')
+    })
+
+    test("It should match previous snapshot", () => {
+      expect(after).toMatchSnapshot()
+    })
+  })
+
+  describe("Template file", () => {
+    let before: string
+    let after: string
+
+    beforeAll(() => {
+      before = fs.readFileSync(
+        "src/__test_assets__/cloud-assembly-v7/stack-1.template.json",
         "utf-8",
       )
       after = prepareTemplateForSnapshot(before)
