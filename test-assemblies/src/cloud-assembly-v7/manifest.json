@@ -1,0 +1,207 @@
+{
+  "version": "7.0.0",
+  "artifacts": {
+    "assembly-my-stage": {
+      "type": "cdk:cloud-assembly",
+      "properties": {
+        "directoryName": "assembly-my-stage",
+        "displayName": "my-stage"
+      }
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "stack-1.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "stack-1.assets.json",
+        "requiresBootstrapStackVersion": 4
+      }
+    },
+    "stack-1": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://112233445566/eu-west-1",
+      "properties": {
+        "templateFile": "stack-1.template.json",
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::112233445566:role/cdk-hnb659fds-deploy-role-112233445566-eu-west-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::112233445566:role/cdk-hnb659fds-cfn-exec-role-112233445566-eu-west-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-112233445566-eu-west-1/c81fb75b7bf793ed2d6fdc01352559e04c49c3b1ed1b140466bea0b0cb0d97e4",
+        "requiresBootstrapStackVersion": 4,
+        "additionalDependencies": [
+          "stack-1.assets"
+        ]
+      },
+      "dependencies": [
+        "stack-1.assets"
+      ],
+      "metadata": {
+        "/stack-1/MyFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyFunctionServiceRole3C357FF2",
+            "trace": [
+              "new Role (/cdk-snapshot/node_modules/@aws-cdk/aws-iam/lib/role.ts:327:18)",
+              "new Function (/cdk-snapshot/node_modules/@aws-cdk/aws-lambda/lib/function.ts:539:31)",
+              "Object.<anonymous> (/cdk-snapshot/test-app/app.ts:13:13)",
+              "Module._compile (internal/modules/cjs/loader.js:1075:30)",
+              "Module.m._compile (/cdk-snapshot/node_modules/ts-node/src/index.ts:1043:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1096:10)",
+              "Object.require.extensions.<computed> [as .ts] (/cdk-snapshot/node_modules/ts-node/src/index.ts:1046:12)",
+              "Module.load (internal/modules/cjs/loader.js:940:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:781:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/cdk-snapshot/node_modules/ts-node/src/bin.ts:225:14)",
+              "Object.<anonymous> (/cdk-snapshot/node_modules/ts-node/src/bin.ts:512:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1075:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1096:10)",
+              "Module.load (internal/modules/cjs/loader.js:940:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:781:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/stack-1/MyFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyFunction3BAA72D1",
+            "trace": [
+              "new Function (/cdk-snapshot/node_modules/@aws-cdk/aws-lambda/lib/function.ts:593:35)",
+              "Object.<anonymous> (/cdk-snapshot/test-app/app.ts:13:13)",
+              "Module._compile (internal/modules/cjs/loader.js:1075:30)",
+              "Module.m._compile (/cdk-snapshot/node_modules/ts-node/src/index.ts:1043:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1096:10)",
+              "Object.require.extensions.<computed> [as .ts] (/cdk-snapshot/node_modules/ts-node/src/index.ts:1046:12)",
+              "Module.load (internal/modules/cjs/loader.js:940:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:781:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/cdk-snapshot/node_modules/ts-node/src/bin.ts:225:14)",
+              "Object.<anonymous> (/cdk-snapshot/node_modules/ts-node/src/bin.ts:512:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1075:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1096:10)",
+              "Module.load (internal/modules/cjs/loader.js:940:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:781:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/stack-1/MyFunction/CurrentVersion/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyFunctionCurrentVersion197490AF72ee7f153e497ca8c6cae8c9c6df5839",
+            "trace": [
+              "new Version (/cdk-snapshot/node_modules/@aws-cdk/aws-lambda/lib/lambda-version.ts:187:21)",
+              "Function.get currentVersion [as currentVersion] (/cdk-snapshot/node_modules/@aws-cdk/aws-lambda/lib/function.ts:340:28)",
+              "Object.<anonymous> (/cdk-snapshot/test-app/app.ts:20:14)",
+              "Module._compile (internal/modules/cjs/loader.js:1075:30)",
+              "Module.m._compile (/cdk-snapshot/node_modules/ts-node/src/index.ts:1043:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1096:10)",
+              "Object.require.extensions.<computed> [as .ts] (/cdk-snapshot/node_modules/ts-node/src/index.ts:1046:12)",
+              "Module.load (internal/modules/cjs/loader.js:940:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:781:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/cdk-snapshot/node_modules/ts-node/src/bin.ts:225:14)",
+              "Object.<anonymous> (/cdk-snapshot/node_modules/ts-node/src/bin.ts:512:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1075:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1096:10)",
+              "Module.load (internal/modules/cjs/loader.js:940:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:781:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/stack-1/MyFunctionVersionOutput": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyFunctionVersionOutput",
+            "trace": [
+              "Object.<anonymous> (/cdk-snapshot/test-app/app.ts:19:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1075:30)",
+              "Module.m._compile (/cdk-snapshot/node_modules/ts-node/src/index.ts:1043:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1096:10)",
+              "Object.require.extensions.<computed> [as .ts] (/cdk-snapshot/node_modules/ts-node/src/index.ts:1046:12)",
+              "Module.load (internal/modules/cjs/loader.js:940:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:781:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/cdk-snapshot/node_modules/ts-node/src/bin.ts:225:14)",
+              "Object.<anonymous> (/cdk-snapshot/node_modules/ts-node/src/bin.ts:512:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1075:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1096:10)",
+              "Module.load (internal/modules/cjs/loader.js:940:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:781:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/stack-1/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/cdk-snapshot/node_modules/@aws-cdk/core/lib/private/metadata-resource.ts:51:24)",
+              "/cdk-snapshot/node_modules/@aws-cdk/core/lib/private/synthesis.ts:140:5",
+              "visit (/cdk-snapshot/node_modules/@aws-cdk/core/lib/private/synthesis.ts:200:5)",
+              "visit (/cdk-snapshot/node_modules/@aws-cdk/core/lib/private/synthesis.ts:196:5)",
+              "injectMetadataResources (/cdk-snapshot/node_modules/@aws-cdk/core/lib/private/synthesis.ts:131:3)",
+              "Object.synthesize (/cdk-snapshot/node_modules/@aws-cdk/core/lib/private/synthesis.ts:18:3)",
+              "App.synth (/cdk-snapshot/node_modules/@aws-cdk/core/lib/stage.ts:188:23)",
+              "process.<anonymous> (/cdk-snapshot/node_modules/@aws-cdk/core/lib/app.ts:123:45)",
+              "Object.onceWrapper (events.js:421:26)",
+              "process.emit (events.js:314:20)",
+              "process.EventEmitter.emit (domain.js:486:12)",
+              "process.emit (/cdk-snapshot/node_modules/source-map-support/source-map-support.js:495:21)"
+            ]
+          }
+        ],
+        "/stack-1/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion",
+            "trace": [
+              "addBootstrapVersionRule (/cdk-snapshot/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.ts:506:17)",
+              "DefaultStackSynthesizer.synthesize (/cdk-snapshot/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.ts:336:7)",
+              "/cdk-snapshot/node_modules/@aws-cdk/core/lib/private/synthesis.ts:157:29",
+              "visit (/cdk-snapshot/node_modules/@aws-cdk/core/lib/private/synthesis.ts:200:5)",
+              "visit (/cdk-snapshot/node_modules/@aws-cdk/core/lib/private/synthesis.ts:196:5)",
+              "synthesizeTree (/cdk-snapshot/node_modules/@aws-cdk/core/lib/private/synthesis.ts:150:3)",
+              "Object.synthesize (/cdk-snapshot/node_modules/@aws-cdk/core/lib/private/synthesis.ts:39:3)",
+              "App.synth (/cdk-snapshot/node_modules/@aws-cdk/core/lib/stage.ts:188:23)",
+              "process.<anonymous> (/cdk-snapshot/node_modules/@aws-cdk/core/lib/app.ts:123:45)",
+              "Object.onceWrapper (events.js:421:26)",
+              "process.emit (events.js:314:20)",
+              "process.EventEmitter.emit (domain.js:486:12)",
+              "process.emit (/cdk-snapshot/node_modules/source-map-support/source-map-support.js:495:21)"
+            ]
+          }
+        ],
+        "/stack-1/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion",
+            "trace": [
+              "addBootstrapVersionRule (/cdk-snapshot/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.ts:516:3)",
+              "DefaultStackSynthesizer.synthesize (/cdk-snapshot/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.ts:336:7)",
+              "/cdk-snapshot/node_modules/@aws-cdk/core/lib/private/synthesis.ts:157:29",
+              "visit (/cdk-snapshot/node_modules/@aws-cdk/core/lib/private/synthesis.ts:200:5)",
+              "visit (/cdk-snapshot/node_modules/@aws-cdk/core/lib/private/synthesis.ts:196:5)",
+              "synthesizeTree (/cdk-snapshot/node_modules/@aws-cdk/core/lib/private/synthesis.ts:150:3)",
+              "Object.synthesize (/cdk-snapshot/node_modules/@aws-cdk/core/lib/private/synthesis.ts:39:3)",
+              "App.synth (/cdk-snapshot/node_modules/@aws-cdk/core/lib/stage.ts:188:23)",
+              "process.<anonymous> (/cdk-snapshot/node_modules/@aws-cdk/core/lib/app.ts:123:45)",
+              "Object.onceWrapper (events.js:421:26)",
+              "process.emit (events.js:314:20)",
+              "process.EventEmitter.emit (domain.js:486:12)",
+              "process.emit (/cdk-snapshot/node_modules/source-map-support/source-map-support.js:495:21)"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

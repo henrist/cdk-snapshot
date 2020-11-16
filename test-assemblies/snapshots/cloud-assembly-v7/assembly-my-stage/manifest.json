@@ -1,0 +1,73 @@
+{
+  "artifacts": {
+    "mystagestack24C53A6C5.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "mystagestack24C53A6C5.assets.json",
+        "requiresBootstrapStackVersion": 4
+      }
+    },
+    "mystagestack24C53A6C5": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://112233445566/eu-west-1",
+      "properties": {
+        "templateFile": "mystagestack24C53A6C5.template.json",
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::112233445566:role/cdk-hnb659fds-deploy-role-112233445566-eu-west-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::112233445566:role/cdk-hnb659fds-cfn-exec-role-112233445566-eu-west-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-112233445566-eu-west-1/072ea39ee8c4fde912cd7aa8e6ed89ae3f0068939dc4990bfcadb3ed1bcbbd73",
+        "requiresBootstrapStackVersion": 4,
+        "additionalDependencies": [
+          "mystagestack24C53A6C5.assets"
+        ],
+        "stackName": "my-stage-stack-2"
+      },
+      "dependencies": [
+        "mystagestack24C53A6C5.assets"
+      ],
+      "metadata": {
+        "/my-stage/stack-2/MyFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyFunctionServiceRole3C357FF2"
+          }
+        ],
+        "/my-stage/stack-2/MyFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyFunction3BAA72D1"
+          }
+        ],
+        "/my-stage/stack-2/MyFunction/CurrentVersion/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyFunctionCurrentVersion197490AFxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+          }
+        ],
+        "/my-stage/stack-2/MyFunctionVersionOutput": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyFunctionVersionOutput"
+          }
+        ],
+        "/my-stage/stack-2/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/my-stage/stack-2/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/my-stage/stack-2/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      }
+    }
+  }
+}

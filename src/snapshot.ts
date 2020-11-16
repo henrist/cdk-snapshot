@@ -4,8 +4,8 @@
 import * as cpy from "cpy"
 import * as del from "del"
 import * as fs from "fs"
-import * as path from "path"
 import * as glob from "glob"
+import * as path from "path"
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function removeVersion(data: any): any {
