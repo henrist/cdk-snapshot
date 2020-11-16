@@ -33,7 +33,7 @@ describe("A current application", () => {
         "cdk.out.test",
         "cdk.out.test/assembly-my-stage",
         "cdk.out.test/assembly-my-stage/manifest.json",
-        "cdk.out.test/assembly-my-stage/my-stage-stack-2.template.json",
+        "cdk.out.test/assembly-my-stage/mystagestack24C53A6C5.template.json",
         "cdk.out.test/manifest.json",
         "cdk.out.test/stack-1.template.json",
       ]
@@ -85,7 +85,7 @@ describe("A current application", () => {
           "cdk.out.test",
           "cdk.out.test/assembly-my-stage",
           "cdk.out.test/assembly-my-stage/manifest.json",
-          "cdk.out.test/assembly-my-stage/my-stage-stack-2.template.json",
+          "cdk.out.test/assembly-my-stage/mystagestack24C53A6C5.template.json",
           "cdk.out.test/manifest.json",
           "cdk.out.test/stack-1.template.json",
         ]
@@ -114,11 +114,6 @@ describe("A current application", () => {
       test("Trace should be removed", () => {
         expect(before).toContain('"trace"')
         expect(after).not.toContain('"trace"')
-      })
-
-      test("Asset hashes should be removed", () => {
-        expect(before).toContain("AssetParameters")
-        expect(after).not.toContain("AssetParameters")
       })
 
       test("It should still contain resource information", () => {
@@ -160,11 +155,6 @@ describe("A current application", () => {
         expect(after).not.toContain('"trace"')
       })
 
-      test("Asset hashes should be removed", () => {
-        expect(before).toContain("AssetParameters")
-        expect(after).not.toContain("AssetParameters")
-      })
-
       test("It should still contain resource information", () => {
         expect(after).toContain('"MyFunctionServiceRole3C357FF2"')
       })
@@ -175,17 +165,10 @@ describe("A current application", () => {
     })
 
     describe("Template file in top-level", () => {
-      let before: string
       let after: string
 
       beforeAll(() => {
-        before = fs.readFileSync("cdk.out/stack-1.template.json", "utf-8")
         after = fs.readFileSync("cdk.out.test/stack-1.template.json", "utf-8")
-      })
-
-      test("Asset hashes should be removed", () => {
-        expect(before).toContain("AssetParameters")
-        expect(after).not.toContain("AssetParameters")
       })
 
       test("It should match previous snapshot", () => {
@@ -194,23 +177,13 @@ describe("A current application", () => {
     })
 
     describe("Template file in stage", () => {
-      let before: string
       let after: string
 
       beforeAll(() => {
-        before = fs.readFileSync(
-          "cdk.out/assembly-my-stage/my-stage-stack-2.template.json",
-          "utf-8",
-        )
         after = fs.readFileSync(
-          "cdk.out.test/assembly-my-stage/my-stage-stack-2.template.json",
+          "cdk.out.test/assembly-my-stage/mystagestack24C53A6C5.template.json",
           "utf-8",
         )
-      })
-
-      test("Asset hashes should be removed", () => {
-        expect(before).toContain("AssetParameters")
-        expect(after).not.toContain("AssetParameters")
       })
 
       test("It should match previous snapshot", () => {

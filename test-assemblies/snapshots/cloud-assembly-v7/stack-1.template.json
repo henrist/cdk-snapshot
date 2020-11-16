@@ -39,7 +39,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "cdk-hnb659fds-assets-112233445566-eu-west-1",
-          "S3Key": "2b77dd4d29043dd9ab1cac79d5366fecac15e76461fac5bb7cdff76b831dc5e0.zip"
+          "S3Key": "snapshot-value.zip"
         },
         "Handler": "index.handler",
         "Role": {

@@ -87,7 +87,7 @@ function removeAssetDetailsFromTemplate(data: any): any {
           } else if (
             key === "aws:asset:path" &&
             typeof value === "string" &&
-            value.startsWith("asset.")
+            /asset\.[0-9a-f]{64}/.test(value)
           ) {
             return [key, "asset.snapshot-value"]
           } else {
@@ -103,6 +103,9 @@ function removeAssetDetailsFromTemplate(data: any): any {
     if (newCurrentVersion) {
       return newCurrentVersion
     }
+
+    // Handle typical content hashes.
+    return data.replace(/[0-9a-f]{64}/g, "snapshot-value")
   }
 
   return data
@@ -141,6 +144,9 @@ function removeAssetDetailsFromManifest(data: any): any {
     if (newCurrentVersion) {
       return newCurrentVersion
     }
+
+    // Handle typical content hashes.
+    return data.replace(/[0-9a-f]{64}/g, "snapshot-value")
   }
 
   return data
@@ -236,6 +242,10 @@ export async function createCloudAssemblySnapshot(
 
   // Remove asset contents for now.
   await del(path.join(dst, "**/asset.*"))
+
+  // Remove asset configs so we don't have to update
+  // snapshots for asset changes.
+  await del(path.join(dst, "**/*.assets.json"))
 
   // Transform the manifest to be more snapshot friendly.
   for (const file of glob.sync("**/manifest.json", { cwd: base })) {

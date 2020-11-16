@@ -89,7 +89,7 @@
       ],
       "Metadata": {
         "aws:cdk:path": "my-stage/stack-2/MyFunction/Resource",
-        "aws:asset:path": "../asset.2b77dd4d29043dd9ab1cac79d5366fecac15e76461fac5bb7cdff76b831dc5e0",
+        "aws:asset:path": "asset.snapshot-value",
         "aws:asset:property": "Code"
       }
     },
