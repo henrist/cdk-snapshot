@@ -292,7 +292,7 @@ describe("Files from a v7 Cloud Assembly", () => {
 
     beforeAll(() => {
       before = fs.readFileSync(
-        "test-assemblies/src/cloud-assembly-v7/manifest.json",
+        "test-assemblies/src/cloud-assembly-v7-old-style/manifest.json",
         "utf-8",
       )
       after = prepareManifestForSnapshot(before)
@@ -333,7 +333,7 @@ describe("Files from a v7 Cloud Assembly", () => {
 
     beforeAll(() => {
       before = fs.readFileSync(
-        "test-assemblies/src/cloud-assembly-v7/stack-1.template.json",
+        "test-assemblies/src/cloud-assembly-v7-old-style/stack-1.template.json",
         "utf-8",
       )
       after = prepareTemplateForSnapshot(before)
