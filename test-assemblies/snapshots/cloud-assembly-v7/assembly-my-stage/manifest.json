@@ -1,0 +1,49 @@
+{
+  "artifacts": {
+    "my-stage-stack-2": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://112233445566/eu-west-1",
+      "properties": {
+        "templateFile": "my-stage-stack-2.template.json"
+      },
+      "metadata": {
+        "/my-stage/stack-2": [
+          {
+            "type": "aws:cdk:asset",
+            "data": "snapshot-value"
+          }
+        ],
+        "/my-stage/stack-2/MyFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyFunctionServiceRole3C357FF2"
+          }
+        ],
+        "/my-stage/stack-2/MyFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyFunction3BAA72D1"
+          }
+        ],
+        "/my-stage/stack-2/MyFunction/CurrentVersion/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyFunctionCurrentVersion197490AFxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+          }
+        ],
+        "/my-stage/stack-2/MyFunctionVersionOutput": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyFunctionVersionOutput"
+          }
+        ],
+        "/my-stage/stack-2/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ]
+      }
+    }
+  }
+}

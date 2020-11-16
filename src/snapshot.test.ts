@@ -227,7 +227,7 @@ describe("Files from a v5 Cloud Assembly", () => {
 
     beforeAll(() => {
       before = fs.readFileSync(
-        "src/__test_assets__/cloud-assembly-v5/manifest.json",
+        "test-assemblies/src/cloud-assembly-v5/manifest.json",
         "utf-8",
       )
       after = prepareManifestForSnapshot(before)
@@ -268,7 +268,7 @@ describe("Files from a v5 Cloud Assembly", () => {
 
     beforeAll(() => {
       before = fs.readFileSync(
-        "src/__test_assets__/cloud-assembly-v5/stack-1.template.json",
+        "test-assemblies/src/cloud-assembly-v5/stack-1.template.json",
         "utf-8",
       )
       after = prepareTemplateForSnapshot(before)
@@ -292,7 +292,7 @@ describe("Files from a v7 Cloud Assembly", () => {
 
     beforeAll(() => {
       before = fs.readFileSync(
-        "src/__test_assets__/cloud-assembly-v7/manifest.json",
+        "test-assemblies/src/cloud-assembly-v7/manifest.json",
         "utf-8",
       )
       after = prepareManifestForSnapshot(before)
@@ -333,7 +333,7 @@ describe("Files from a v7 Cloud Assembly", () => {
 
     beforeAll(() => {
       before = fs.readFileSync(
-        "src/__test_assets__/cloud-assembly-v7/stack-1.template.json",
+        "test-assemblies/src/cloud-assembly-v7/stack-1.template.json",
         "utf-8",
       )
       after = prepareTemplateForSnapshot(before)

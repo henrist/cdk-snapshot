@@ -14,7 +14,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "prepare": "npm run build",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "snapshots": "./test-assemblies/build-all.sh"
   },
   "bin": {
     "cdk-snapshot": "lib/bin/cdk-snapshot.js"

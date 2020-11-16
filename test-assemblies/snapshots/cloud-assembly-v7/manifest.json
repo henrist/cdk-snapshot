@@ -1,0 +1,62 @@
+{
+  "artifacts": {
+    "assembly-my-stage": {
+      "type": "cdk:cloud-assembly",
+      "properties": {
+        "directoryName": "assembly-my-stage",
+        "displayName": "my-stage"
+      }
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "stack-1": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://112233445566/eu-west-1",
+      "properties": {
+        "templateFile": "stack-1.template.json"
+      },
+      "metadata": {
+        "/stack-1": [
+          {
+            "type": "aws:cdk:asset",
+            "data": "snapshot-value"
+          }
+        ],
+        "/stack-1/MyFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyFunctionServiceRole3C357FF2"
+          }
+        ],
+        "/stack-1/MyFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyFunction3BAA72D1"
+          }
+        ],
+        "/stack-1/MyFunction/CurrentVersion/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyFunctionCurrentVersion197490AFxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+          }
+        ],
+        "/stack-1/MyFunctionVersionOutput": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyFunctionVersionOutput"
+          }
+        ],
+        "/stack-1/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ]
+      }
+    }
+  }
+}

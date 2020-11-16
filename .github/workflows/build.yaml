@@ -12,6 +12,10 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run test
+      - run: |
+          npm run snapshots
+          git status
+          git diff --exit-code
       - run: npm run semantic-release
         if: github.ref == 'refs/heads/master'
         env:

@@ -539,6 +539,13 @@ exports[`Files from a v5 Cloud Assembly Template file It should match previous s
 exports[`Files from a v7 Cloud Assembly Manifest file It should match previous snapshot 1`] = `
 "{
   \\"artifacts\\": {
+    \\"assembly-my-stage\\": {
+      \\"type\\": \\"cdk:cloud-assembly\\",
+      \\"properties\\": {
+        \\"directoryName\\": \\"assembly-my-stage\\",
+        \\"displayName\\": \\"my-stage\\"
+      }
+    },
     \\"Tree\\": {
       \\"type\\": \\"cdk:tree\\",
       \\"properties\\": {
