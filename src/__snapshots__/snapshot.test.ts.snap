@@ -7,7 +7,8 @@ exports[`A current application For a given snapshot Manifest file in stage It sh
       \\"type\\": \\"cdk:asset-manifest\\",
       \\"properties\\": {
         \\"file\\": \\"mystagestack24C53A6C5.assets.json\\",
-        \\"requiresBootstrapStackVersion\\": 4
+        \\"requiresBootstrapStackVersion\\": 4,
+        \\"bootstrapStackVersionSsmParameter\\": \\"/cdk-bootstrap/hnb659fds/version\\"
       }
     },
     \\"mystagestack24C53A6C5\\": {
@@ -17,8 +18,9 @@ exports[`A current application For a given snapshot Manifest file in stage It sh
         \\"templateFile\\": \\"mystagestack24C53A6C5.template.json\\",
         \\"assumeRoleArn\\": \\"arn:\${AWS::Partition}:iam::112233445566:role/cdk-hnb659fds-deploy-role-112233445566-eu-west-1\\",
         \\"cloudFormationExecutionRoleArn\\": \\"arn:\${AWS::Partition}:iam::112233445566:role/cdk-hnb659fds-cfn-exec-role-112233445566-eu-west-1\\",
-        \\"stackTemplateAssetObjectUrl\\": \\"s3://cdk-hnb659fds-assets-112233445566-eu-west-1/snapshot-value\\",
+        \\"stackTemplateAssetObjectUrl\\": \\"s3://cdk-hnb659fds-assets-112233445566-eu-west-1/snapshot-value.json\\",
         \\"requiresBootstrapStackVersion\\": 4,
+        \\"bootstrapStackVersionSsmParameter\\": \\"/cdk-bootstrap/hnb659fds/version\\",
         \\"additionalDependencies\\": [
           \\"mystagestack24C53A6C5.assets\\"
         ],
@@ -96,7 +98,8 @@ exports[`A current application For a given snapshot Manifest file in top-level I
       \\"type\\": \\"cdk:asset-manifest\\",
       \\"properties\\": {
         \\"file\\": \\"stack-1.assets.json\\",
-        \\"requiresBootstrapStackVersion\\": 4
+        \\"requiresBootstrapStackVersion\\": 4,
+        \\"bootstrapStackVersionSsmParameter\\": \\"/cdk-bootstrap/hnb659fds/version\\"
       }
     },
     \\"stack-1\\": {
@@ -106,8 +109,9 @@ exports[`A current application For a given snapshot Manifest file in top-level I
         \\"templateFile\\": \\"stack-1.template.json\\",
         \\"assumeRoleArn\\": \\"arn:\${AWS::Partition}:iam::112233445566:role/cdk-hnb659fds-deploy-role-112233445566-eu-west-1\\",
         \\"cloudFormationExecutionRoleArn\\": \\"arn:\${AWS::Partition}:iam::112233445566:role/cdk-hnb659fds-cfn-exec-role-112233445566-eu-west-1\\",
-        \\"stackTemplateAssetObjectUrl\\": \\"s3://cdk-hnb659fds-assets-112233445566-eu-west-1/snapshot-value\\",
+        \\"stackTemplateAssetObjectUrl\\": \\"s3://cdk-hnb659fds-assets-112233445566-eu-west-1/snapshot-value.json\\",
         \\"requiresBootstrapStackVersion\\": 4,
+        \\"bootstrapStackVersionSsmParameter\\": \\"/cdk-bootstrap/hnb659fds/version\\",
         \\"additionalDependencies\\": [
           \\"stack-1.assets\\"
         ]
@@ -208,13 +212,13 @@ exports[`A current application For a given snapshot Template file in stage It sh
           \\"S3Bucket\\": \\"cdk-hnb659fds-assets-112233445566-eu-west-1\\",
           \\"S3Key\\": \\"snapshot-value.zip\\"
         },
-        \\"Handler\\": \\"index.handler\\",
         \\"Role\\": {
           \\"Fn::GetAtt\\": [
             \\"MyFunctionServiceRole3C357FF2\\",
             \\"Arn\\"
           ]
         },
+        \\"Handler\\": \\"index.handler\\",
         \\"Runtime\\": \\"nodejs12.x\\"
       },
       \\"DependsOn\\": [
@@ -327,13 +331,13 @@ exports[`A current application For a given snapshot Template file in top-level I
           \\"S3Bucket\\": \\"cdk-hnb659fds-assets-112233445566-eu-west-1\\",
           \\"S3Key\\": \\"snapshot-value.zip\\"
         },
-        \\"Handler\\": \\"index.handler\\",
         \\"Role\\": {
           \\"Fn::GetAtt\\": [
             \\"MyFunctionServiceRole3C357FF2\\",
             \\"Arn\\"
           ]
         },
+        \\"Handler\\": \\"index.handler\\",
         \\"Runtime\\": \\"nodejs12.x\\"
       },
       \\"DependsOn\\": [
