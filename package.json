@@ -13,7 +13,7 @@
     "test": "jest",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "prepare": "npm run build",
+    "prepare": "npm run build && husky install",
     "semantic-release": "semantic-release",
     "snapshots": "./test-assemblies/build-all.sh"
   },
@@ -61,11 +61,6 @@
     "ts-jest": "26.5.4",
     "ts-node": "9.1.1",
     "typescript": "4.2.4"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "dependencies": {
     "cpy": "^8.1.0",
