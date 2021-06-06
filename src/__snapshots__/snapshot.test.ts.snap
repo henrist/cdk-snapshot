@@ -16,6 +16,7 @@ exports[`A current application For a given snapshot Manifest file in stage It sh
       \\"environment\\": \\"aws://112233445566/eu-west-1\\",
       \\"properties\\": {
         \\"templateFile\\": \\"mystagestack24C53A6C5.template.json\\",
+        \\"validateOnSynth\\": false,
         \\"assumeRoleArn\\": \\"arn:\${AWS::Partition}:iam::112233445566:role/cdk-hnb659fds-deploy-role-112233445566-eu-west-1\\",
         \\"cloudFormationExecutionRoleArn\\": \\"arn:\${AWS::Partition}:iam::112233445566:role/cdk-hnb659fds-cfn-exec-role-112233445566-eu-west-1\\",
         \\"stackTemplateAssetObjectUrl\\": \\"s3://cdk-hnb659fds-assets-112233445566-eu-west-1/snapshot-value.json\\",
@@ -72,7 +73,8 @@ exports[`A current application For a given snapshot Manifest file in stage It sh
             \\"data\\": \\"CheckBootstrapVersion\\"
           }
         ]
-      }
+      },
+      \\"displayName\\": \\"my-stage/stack-2\\"
     }
   }
 }"
@@ -107,6 +109,7 @@ exports[`A current application For a given snapshot Manifest file in top-level I
       \\"environment\\": \\"aws://112233445566/eu-west-1\\",
       \\"properties\\": {
         \\"templateFile\\": \\"stack-1.template.json\\",
+        \\"validateOnSynth\\": false,
         \\"assumeRoleArn\\": \\"arn:\${AWS::Partition}:iam::112233445566:role/cdk-hnb659fds-deploy-role-112233445566-eu-west-1\\",
         \\"cloudFormationExecutionRoleArn\\": \\"arn:\${AWS::Partition}:iam::112233445566:role/cdk-hnb659fds-cfn-exec-role-112233445566-eu-west-1\\",
         \\"stackTemplateAssetObjectUrl\\": \\"s3://cdk-hnb659fds-assets-112233445566-eu-west-1/snapshot-value.json\\",
@@ -162,7 +165,8 @@ exports[`A current application For a given snapshot Manifest file in top-level I
             \\"data\\": \\"CheckBootstrapVersion\\"
           }
         ]
-      }
+      },
+      \\"displayName\\": \\"stack-1\\"
     }
   }
 }"
