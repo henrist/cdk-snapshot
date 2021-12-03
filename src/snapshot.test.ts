@@ -111,11 +111,6 @@ describe("A current application", () => {
         expect(after).not.toContain('"runtime":')
       })
 
-      test("Trace should be removed", () => {
-        expect(before).toContain('"trace"')
-        expect(after).not.toContain('"trace"')
-      })
-
       test("It should still contain resource information", () => {
         expect(after).toContain('"MyFunctionServiceRole3C357FF2"')
       })
@@ -150,11 +145,6 @@ describe("A current application", () => {
         expect(after).not.toContain('"runtime":')
       })
 
-      test("Trace should be removed", () => {
-        expect(before).toContain('"trace"')
-        expect(after).not.toContain('"trace"')
-      })
-
       test("It should still contain resource information", () => {
         expect(after).toContain('"MyFunctionServiceRole3C357FF2"')
       })
@@ -183,6 +173,12 @@ describe("A current application", () => {
         after = fs.readFileSync(
           "cdk.out.test/assembly-my-stage/mystagestack24C53A6C5.template.json",
           "utf-8",
+        )
+      })
+
+      test("aws:asset:original-path metadata should be overwritten", () => {
+        expect(after).toContain(
+          '"aws:asset:original-path": "/asset/snapshot-value"',
         )
       })
 
@@ -315,6 +311,68 @@ describe("Files from a v7 Cloud Assembly", () => {
     test("Asset hashes should be removed", () => {
       expect(before).toContain("AssetParameters")
       expect(after).not.toContain("AssetParameters")
+    })
+
+    test("It should match previous snapshot", () => {
+      expect(after).toMatchSnapshot()
+    })
+  })
+})
+
+describe("Files from a v15 Cloud Assembly", () => {
+  describe("Manifest file", () => {
+    let before: string
+    let after: string
+
+    beforeAll(() => {
+      before = fs.readFileSync(
+        "test-assemblies/src/cloud-assembly-v15/manifest.json",
+        "utf-8",
+      )
+      after = prepareManifestForSnapshot(before)
+    })
+
+    test("Version should be removed", () => {
+      expect(before).toContain('"version"')
+      expect(after).not.toContain('"version"')
+    })
+
+    test("No runtime information", () => {
+      expect(before).not.toContain('"runtime":')
+      expect(after).not.toContain('"runtime":')
+    })
+
+    test("It should still contain resource information", () => {
+      expect(after).toContain('"MyFunctionServiceRole3C357FF2"')
+    })
+
+    test("It should match previous snapshot", () => {
+      expect(after).toMatchSnapshot()
+    })
+  })
+
+  describe("Template file", () => {
+    let before: string
+    let after: string
+
+    beforeAll(() => {
+      before = fs.readFileSync(
+        "test-assemblies/src/cloud-assembly-v15/stack-1.template.json",
+        "utf-8",
+      )
+      after = prepareTemplateForSnapshot(before)
+    })
+
+    test("aws:asset:original-path metadata should be overwritten", () => {
+      expect(before).toContain(
+        '"aws:asset:original-path": "/cdk-snapshot/test-app/example-asset"',
+      )
+      expect(after).not.toContain(
+        '"aws:asset:original-path": "/cdk-snapshot/test-app/example-asset"',
+      )
+      expect(after).toContain(
+        '"aws:asset:original-path": "/asset/snapshot-value"',
+      )
     })
 
     test("It should match previous snapshot", () => {

@@ -1,5 +1,5 @@
-import * as lambda from "@aws-cdk/aws-lambda"
-import * as cdk from "@aws-cdk/core"
+import * as cdk from "aws-cdk-lib"
+import * as lambda from "aws-cdk-lib/aws-lambda"
 
 const app = new cdk.App()
 

@@ -1,7 +1,7 @@
 # CDK snapshot
 
 Create a snapshot friendly version of a
-[CDK](https://github.com/aws/aws-cdk)
+[CDK](https://github.com/aws/aws-cdk) (both v1 and v2)
 [Cloud Assembly](https://github.com/aws/aws-cdk/blob/master/packages/@aws-cdk/cloud-assembly-schema/README.md)
 that can be commited as part of the source code. The goal is to have
 better control over structural stack changes before it is merged.
@@ -14,7 +14,7 @@ reviewable as well.
 ## Usage
 
 ```bash
-npm install @henrist/cdk-snapshot
+npm install --save-dev @henrist/cdk-snapshot rimraf
 ```
 
 Add run-script to `package.json`:

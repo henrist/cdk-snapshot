@@ -90,6 +90,11 @@ function removeAssetDetailsFromTemplate(data: any): any {
             /asset\.[0-9a-f]{64}/.test(value)
           ) {
             return [key, "asset.snapshot-value"]
+          } else if (
+            key === "aws:asset:original-path" &&
+            typeof value === "string"
+          ) {
+            return [key, "/asset/snapshot-value"]
           } else {
             return [key, removeAssetDetailsFromTemplate(value)]
           }

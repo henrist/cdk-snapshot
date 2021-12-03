@@ -7,7 +7,7 @@ exports[`A current application For a given snapshot Manifest file in stage It sh
       \\"type\\": \\"cdk:asset-manifest\\",
       \\"properties\\": {
         \\"file\\": \\"mystagestack24C53A6C5.assets.json\\",
-        \\"requiresBootstrapStackVersion\\": 4,
+        \\"requiresBootstrapStackVersion\\": 6,
         \\"bootstrapStackVersionSsmParameter\\": \\"/cdk-bootstrap/hnb659fds/version\\"
       }
     },
@@ -20,7 +20,7 @@ exports[`A current application For a given snapshot Manifest file in stage It sh
         \\"assumeRoleArn\\": \\"arn:\${AWS::Partition}:iam::112233445566:role/cdk-hnb659fds-deploy-role-112233445566-eu-west-1\\",
         \\"cloudFormationExecutionRoleArn\\": \\"arn:\${AWS::Partition}:iam::112233445566:role/cdk-hnb659fds-cfn-exec-role-112233445566-eu-west-1\\",
         \\"stackTemplateAssetObjectUrl\\": \\"s3://cdk-hnb659fds-assets-112233445566-eu-west-1/snapshot-value.json\\",
-        \\"requiresBootstrapStackVersion\\": 4,
+        \\"requiresBootstrapStackVersion\\": 6,
         \\"bootstrapStackVersionSsmParameter\\": \\"/cdk-bootstrap/hnb659fds/version\\",
         \\"additionalDependencies\\": [
           \\"mystagestack24C53A6C5.assets\\"
@@ -100,7 +100,7 @@ exports[`A current application For a given snapshot Manifest file in top-level I
       \\"type\\": \\"cdk:asset-manifest\\",
       \\"properties\\": {
         \\"file\\": \\"stack-1.assets.json\\",
-        \\"requiresBootstrapStackVersion\\": 4,
+        \\"requiresBootstrapStackVersion\\": 6,
         \\"bootstrapStackVersionSsmParameter\\": \\"/cdk-bootstrap/hnb659fds/version\\"
       }
     },
@@ -113,7 +113,7 @@ exports[`A current application For a given snapshot Manifest file in top-level I
         \\"assumeRoleArn\\": \\"arn:\${AWS::Partition}:iam::112233445566:role/cdk-hnb659fds-deploy-role-112233445566-eu-west-1\\",
         \\"cloudFormationExecutionRoleArn\\": \\"arn:\${AWS::Partition}:iam::112233445566:role/cdk-hnb659fds-cfn-exec-role-112233445566-eu-west-1\\",
         \\"stackTemplateAssetObjectUrl\\": \\"s3://cdk-hnb659fds-assets-112233445566-eu-west-1/snapshot-value.json\\",
-        \\"requiresBootstrapStackVersion\\": 4,
+        \\"requiresBootstrapStackVersion\\": 6,
         \\"bootstrapStackVersionSsmParameter\\": \\"/cdk-bootstrap/hnb659fds/version\\",
         \\"additionalDependencies\\": [
           \\"stack-1.assets\\"
@@ -231,6 +231,8 @@ exports[`A current application For a given snapshot Template file in stage It sh
       \\"Metadata\\": {
         \\"aws:cdk:path\\": \\"my-stage/stack-2/MyFunction/Resource\\",
         \\"aws:asset:path\\": \\"asset.snapshot-value\\",
+        \\"aws:asset:original-path\\": \\"/asset/snapshot-value\\",
+        \\"aws:asset:is-bundled\\": false,
         \\"aws:asset:property\\": \\"Code\\"
       }
     },
@@ -260,7 +262,7 @@ exports[`A current application For a given snapshot Template file in stage It sh
     \\"BootstrapVersion\\": {
       \\"Type\\": \\"AWS::SSM::Parameter::Value<String>\\",
       \\"Default\\": \\"/cdk-bootstrap/hnb659fds/version\\",
-      \\"Description\\": \\"Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store.\\"
+      \\"Description\\": \\"Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]\\"
     }
   },
   \\"Rules\\": {
@@ -274,7 +276,9 @@ exports[`A current application For a given snapshot Template file in stage It sh
                   [
                     \\"1\\",
                     \\"2\\",
-                    \\"3\\"
+                    \\"3\\",
+                    \\"4\\",
+                    \\"5\\"
                   ],
                   {
                     \\"Ref\\": \\"BootstrapVersion\\"
@@ -283,7 +287,7 @@ exports[`A current application For a given snapshot Template file in stage It sh
               }
             ]
           },
-          \\"AssertDescription\\": \\"CDK bootstrap stack version 4 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.\\"
+          \\"AssertDescription\\": \\"CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.\\"
         }
       ]
     }
@@ -350,6 +354,8 @@ exports[`A current application For a given snapshot Template file in top-level I
       \\"Metadata\\": {
         \\"aws:cdk:path\\": \\"stack-1/MyFunction/Resource\\",
         \\"aws:asset:path\\": \\"asset.snapshot-value\\",
+        \\"aws:asset:original-path\\": \\"/asset/snapshot-value\\",
+        \\"aws:asset:is-bundled\\": false,
         \\"aws:asset:property\\": \\"Code\\"
       }
     },
@@ -379,7 +385,7 @@ exports[`A current application For a given snapshot Template file in top-level I
     \\"BootstrapVersion\\": {
       \\"Type\\": \\"AWS::SSM::Parameter::Value<String>\\",
       \\"Default\\": \\"/cdk-bootstrap/hnb659fds/version\\",
-      \\"Description\\": \\"Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store.\\"
+      \\"Description\\": \\"Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]\\"
     }
   },
   \\"Rules\\": {
@@ -393,7 +399,9 @@ exports[`A current application For a given snapshot Template file in top-level I
                   [
                     \\"1\\",
                     \\"2\\",
-                    \\"3\\"
+                    \\"3\\",
+                    \\"4\\",
+                    \\"5\\"
                   ],
                   {
                     \\"Ref\\": \\"BootstrapVersion\\"
@@ -402,7 +410,7 @@ exports[`A current application For a given snapshot Template file in top-level I
               }
             ]
           },
-          \\"AssertDescription\\": \\"CDK bootstrap stack version 4 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.\\"
+          \\"AssertDescription\\": \\"CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.\\"
         }
       ]
     }
@@ -767,6 +775,221 @@ exports[`Files from a v7 Cloud Assembly Template file It should match previous s
           \\"Version\\"
         ]
       }
+    }
+  }
+}"
+`;
+
+exports[`Files from a v15 Cloud Assembly Manifest file It should match previous snapshot 1`] = `
+"{
+  \\"artifacts\\": {
+    \\"assembly-my-stage\\": {
+      \\"type\\": \\"cdk:cloud-assembly\\",
+      \\"properties\\": {
+        \\"directoryName\\": \\"assembly-my-stage\\",
+        \\"displayName\\": \\"my-stage\\"
+      }
+    },
+    \\"Tree\\": {
+      \\"type\\": \\"cdk:tree\\",
+      \\"properties\\": {
+        \\"file\\": \\"tree.json\\"
+      }
+    },
+    \\"stack-1.assets\\": {
+      \\"type\\": \\"cdk:asset-manifest\\",
+      \\"properties\\": {
+        \\"file\\": \\"stack-1.assets.json\\",
+        \\"requiresBootstrapStackVersion\\": 6,
+        \\"bootstrapStackVersionSsmParameter\\": \\"/cdk-bootstrap/hnb659fds/version\\"
+      }
+    },
+    \\"stack-1\\": {
+      \\"type\\": \\"aws:cloudformation:stack\\",
+      \\"environment\\": \\"aws://112233445566/eu-west-1\\",
+      \\"properties\\": {
+        \\"templateFile\\": \\"stack-1.template.json\\",
+        \\"validateOnSynth\\": false,
+        \\"assumeRoleArn\\": \\"arn:\${AWS::Partition}:iam::112233445566:role/cdk-hnb659fds-deploy-role-112233445566-eu-west-1\\",
+        \\"cloudFormationExecutionRoleArn\\": \\"arn:\${AWS::Partition}:iam::112233445566:role/cdk-hnb659fds-cfn-exec-role-112233445566-eu-west-1\\",
+        \\"stackTemplateAssetObjectUrl\\": \\"s3://cdk-hnb659fds-assets-112233445566-eu-west-1/snapshot-value.json\\",
+        \\"requiresBootstrapStackVersion\\": 6,
+        \\"bootstrapStackVersionSsmParameter\\": \\"/cdk-bootstrap/hnb659fds/version\\",
+        \\"additionalDependencies\\": [
+          \\"stack-1.assets\\"
+        ]
+      },
+      \\"dependencies\\": [
+        \\"stack-1.assets\\"
+      ],
+      \\"metadata\\": {
+        \\"/stack-1/MyFunction/ServiceRole/Resource\\": [
+          {
+            \\"type\\": \\"aws:cdk:logicalId\\",
+            \\"data\\": \\"MyFunctionServiceRole3C357FF2\\"
+          }
+        ],
+        \\"/stack-1/MyFunction/Resource\\": [
+          {
+            \\"type\\": \\"aws:cdk:logicalId\\",
+            \\"data\\": \\"MyFunction3BAA72D1\\"
+          }
+        ],
+        \\"/stack-1/MyFunction/CurrentVersion/Resource\\": [
+          {
+            \\"type\\": \\"aws:cdk:logicalId\\",
+            \\"data\\": \\"MyFunctionCurrentVersion197490AFxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\"
+          }
+        ],
+        \\"/stack-1/MyFunctionVersionOutput\\": [
+          {
+            \\"type\\": \\"aws:cdk:logicalId\\",
+            \\"data\\": \\"MyFunctionVersionOutput\\"
+          }
+        ],
+        \\"/stack-1/CDKMetadata/Default\\": [
+          {
+            \\"type\\": \\"aws:cdk:logicalId\\",
+            \\"data\\": \\"CDKMetadata\\"
+          }
+        ],
+        \\"/stack-1/BootstrapVersion\\": [
+          {
+            \\"type\\": \\"aws:cdk:logicalId\\",
+            \\"data\\": \\"BootstrapVersion\\"
+          }
+        ],
+        \\"/stack-1/CheckBootstrapVersion\\": [
+          {
+            \\"type\\": \\"aws:cdk:logicalId\\",
+            \\"data\\": \\"CheckBootstrapVersion\\"
+          }
+        ]
+      },
+      \\"displayName\\": \\"stack-1\\"
+    }
+  }
+}"
+`;
+
+exports[`Files from a v15 Cloud Assembly Template file It should match previous snapshot 1`] = `
+"{
+  \\"Resources\\": {
+    \\"MyFunctionServiceRole3C357FF2\\": {
+      \\"Type\\": \\"AWS::IAM::Role\\",
+      \\"Properties\\": {
+        \\"AssumeRolePolicyDocument\\": {
+          \\"Statement\\": [
+            {
+              \\"Action\\": \\"sts:AssumeRole\\",
+              \\"Effect\\": \\"Allow\\",
+              \\"Principal\\": {
+                \\"Service\\": \\"lambda.amazonaws.com\\"
+              }
+            }
+          ],
+          \\"Version\\": \\"2012-10-17\\"
+        },
+        \\"ManagedPolicyArns\\": [
+          {
+            \\"Fn::Join\\": [
+              \\"\\",
+              [
+                \\"arn:\\",
+                {
+                  \\"Ref\\": \\"AWS::Partition\\"
+                },
+                \\":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole\\"
+              ]
+            ]
+          }
+        ]
+      },
+      \\"Metadata\\": {
+        \\"aws:cdk:path\\": \\"stack-1/MyFunction/ServiceRole/Resource\\"
+      }
+    },
+    \\"MyFunction3BAA72D1\\": {
+      \\"Type\\": \\"AWS::Lambda::Function\\",
+      \\"Properties\\": {
+        \\"Code\\": {
+          \\"S3Bucket\\": \\"cdk-hnb659fds-assets-112233445566-eu-west-1\\",
+          \\"S3Key\\": \\"snapshot-value.zip\\"
+        },
+        \\"Role\\": {
+          \\"Fn::GetAtt\\": [
+            \\"MyFunctionServiceRole3C357FF2\\",
+            \\"Arn\\"
+          ]
+        },
+        \\"Handler\\": \\"index.handler\\",
+        \\"Runtime\\": \\"nodejs12.x\\"
+      },
+      \\"DependsOn\\": [
+        \\"MyFunctionServiceRole3C357FF2\\"
+      ],
+      \\"Metadata\\": {
+        \\"aws:cdk:path\\": \\"stack-1/MyFunction/Resource\\",
+        \\"aws:asset:path\\": \\"asset.snapshot-value\\",
+        \\"aws:asset:original-path\\": \\"/asset/snapshot-value\\",
+        \\"aws:asset:is-bundled\\": false,
+        \\"aws:asset:property\\": \\"Code\\"
+      }
+    },
+    \\"MyFunctionCurrentVersion197490AFxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\": {
+      \\"Type\\": \\"AWS::Lambda::Version\\",
+      \\"Properties\\": {
+        \\"FunctionName\\": {
+          \\"Ref\\": \\"MyFunction3BAA72D1\\"
+        }
+      },
+      \\"Metadata\\": {
+        \\"aws:cdk:path\\": \\"stack-1/MyFunction/CurrentVersion/Resource\\"
+      }
+    }
+  },
+  \\"Outputs\\": {
+    \\"MyFunctionVersionOutput\\": {
+      \\"Value\\": {
+        \\"Fn::GetAtt\\": [
+          \\"MyFunctionCurrentVersion197490AFxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\",
+          \\"Version\\"
+        ]
+      }
+    }
+  },
+  \\"Parameters\\": {
+    \\"BootstrapVersion\\": {
+      \\"Type\\": \\"AWS::SSM::Parameter::Value<String>\\",
+      \\"Default\\": \\"/cdk-bootstrap/hnb659fds/version\\",
+      \\"Description\\": \\"Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]\\"
+    }
+  },
+  \\"Rules\\": {
+    \\"CheckBootstrapVersion\\": {
+      \\"Assertions\\": [
+        {
+          \\"Assert\\": {
+            \\"Fn::Not\\": [
+              {
+                \\"Fn::Contains\\": [
+                  [
+                    \\"1\\",
+                    \\"2\\",
+                    \\"3\\",
+                    \\"4\\",
+                    \\"5\\"
+                  ],
+                  {
+                    \\"Ref\\": \\"BootstrapVersion\\"
+                  }
+                ]
+              }
+            ]
+          },
+          \\"AssertDescription\\": \\"CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.\\"
+        }
+      ]
     }
   }
 }"
