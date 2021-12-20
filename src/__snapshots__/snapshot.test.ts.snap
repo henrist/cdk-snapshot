@@ -231,7 +231,6 @@ exports[`A current application For a given snapshot Template file in stage It sh
       \\"Metadata\\": {
         \\"aws:cdk:path\\": \\"my-stage/stack-2/MyFunction/Resource\\",
         \\"aws:asset:path\\": \\"asset.snapshot-value\\",
-        \\"aws:asset:original-path\\": \\"/asset/snapshot-value\\",
         \\"aws:asset:is-bundled\\": false,
         \\"aws:asset:property\\": \\"Code\\"
       }
@@ -354,7 +353,6 @@ exports[`A current application For a given snapshot Template file in top-level I
       \\"Metadata\\": {
         \\"aws:cdk:path\\": \\"stack-1/MyFunction/Resource\\",
         \\"aws:asset:path\\": \\"asset.snapshot-value\\",
-        \\"aws:asset:original-path\\": \\"/asset/snapshot-value\\",
         \\"aws:asset:is-bundled\\": false,
         \\"aws:asset:property\\": \\"Code\\"
       }
