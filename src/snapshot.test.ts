@@ -176,12 +176,6 @@ describe("A current application", () => {
         )
       })
 
-      test("aws:asset:original-path metadata should be overwritten", () => {
-        expect(after).toContain(
-          '"aws:asset:original-path": "/asset/snapshot-value"',
-        )
-      })
-
       test("It should match previous snapshot", () => {
         expect(after).toMatchSnapshot()
       })

@@ -25,6 +25,11 @@ exports[`A current application For a given snapshot Manifest file in stage It sh
         \\"additionalDependencies\\": [
           \\"mystagestack24C53A6C5.assets\\"
         ],
+        \\"lookupRole\\": {
+          \\"arn\\": \\"arn:\${AWS::Partition}:iam::112233445566:role/cdk-hnb659fds-lookup-role-112233445566-eu-west-1\\",
+          \\"requiresBootstrapStackVersion\\": 8,
+          \\"bootstrapStackVersionSsmParameter\\": \\"/cdk-bootstrap/hnb659fds/version\\"
+        },
         \\"stackName\\": \\"my-stage-stack-2\\"
       },
       \\"dependencies\\": [
@@ -117,7 +122,12 @@ exports[`A current application For a given snapshot Manifest file in top-level I
         \\"bootstrapStackVersionSsmParameter\\": \\"/cdk-bootstrap/hnb659fds/version\\",
         \\"additionalDependencies\\": [
           \\"stack-1.assets\\"
-        ]
+        ],
+        \\"lookupRole\\": {
+          \\"arn\\": \\"arn:\${AWS::Partition}:iam::112233445566:role/cdk-hnb659fds-lookup-role-112233445566-eu-west-1\\",
+          \\"requiresBootstrapStackVersion\\": 8,
+          \\"bootstrapStackVersionSsmParameter\\": \\"/cdk-bootstrap/hnb659fds/version\\"
+        }
       },
       \\"dependencies\\": [
         \\"stack-1.assets\\"
@@ -231,7 +241,6 @@ exports[`A current application For a given snapshot Template file in stage It sh
       \\"Metadata\\": {
         \\"aws:cdk:path\\": \\"my-stage/stack-2/MyFunction/Resource\\",
         \\"aws:asset:path\\": \\"asset.snapshot-value\\",
-        \\"aws:asset:original-path\\": \\"/asset/snapshot-value\\",
         \\"aws:asset:is-bundled\\": false,
         \\"aws:asset:property\\": \\"Code\\"
       }
@@ -354,7 +363,6 @@ exports[`A current application For a given snapshot Template file in top-level I
       \\"Metadata\\": {
         \\"aws:cdk:path\\": \\"stack-1/MyFunction/Resource\\",
         \\"aws:asset:path\\": \\"asset.snapshot-value\\",
-        \\"aws:asset:original-path\\": \\"/asset/snapshot-value\\",
         \\"aws:asset:is-bundled\\": false,
         \\"aws:asset:property\\": \\"Code\\"
       }
